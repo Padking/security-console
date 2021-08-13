@@ -20,8 +20,9 @@ def main():
     active_passcards_msg = active_passcards_template.format(len(active_passcards))
 
     visits = Visit.objects.all()
+    in_vault = Visit.objects.filter(leaved_at=None)
 
-    print(passcards_count_msg, active_passcards_msg, visits, sep="\n")
+    print(visits, in_vault, sep="\n")
 
 
 if __name__ == '__main__':
