@@ -6,6 +6,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 django.setup()
 
 from datacenter.models import Passcard  # noqa: E402
+from datacenter.models import Visit
 
 
 def main():
@@ -16,9 +17,11 @@ def main():
     passcards_count_msg = passcards_count_template.format(passcards_count)
 
     active_passcards_template = "Активных пропусков {}"
-    active_passcards = active_passcards_template.format(len(active_passcards))
+    active_passcards_msg = active_passcards_template.format(len(active_passcards))
 
-    print(passcards_count_msg, active_passcards, sep="\n")
+    visits = Visit.objects.all()
+
+    print(passcards_count_msg, active_passcards_msg, visits, sep="\n")
 
 
 if __name__ == '__main__':
