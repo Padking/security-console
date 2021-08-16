@@ -7,14 +7,15 @@ from django.utils.timezone import localtime
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 django.setup()
 
-from datacenter.models import Passcard  # noqa: E402
-from datacenter.models import Visit
+from datacenter.models import Passcard, \
+                              Visit  # noqa: E402
+
 
 
 def main():
-    visitors_in_vault = Visit.objects.filter(leaved_at=None)
-    for visitor in visitors_in_vault:
-        print(visitor.passcard.owner_name)
+    passcard = Passcard.objects.all()[0]
+    visits_per_passcard = passcard.visit_set.all()
+    print(visits_per_passcard)
 
 
 if __name__ == '__main__':
