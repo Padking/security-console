@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.utils.timezone import localtime
 
@@ -26,6 +28,9 @@ class Visit(models.Model):
         duration = leaved_at_localtime - entry_localtime
 
         return duration
+
+    def is_visit_long(self, minutes=60):
+        return True if self.get_duration() > datetime.timedelta(minutes=minutes) else False
 
     def __str__(self):
         return '{user} entered at {entered} {leaved}'.format(

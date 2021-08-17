@@ -30,3 +30,20 @@ def to_dict(instance: Visit,
         about_instance[field_name] = field_value
 
     return about_instance
+
+
+def visit_to_dict(visit: Visit,
+                  visit_fields_names=('entered_at', 'duration', 'is_strange', )):
+
+    entered_at = visit.entered_at
+    duration = format_duration(visit.get_duration())
+    is_strange = visit.is_visit_long()
+
+    visit_fields_vals = (entered_at, duration, is_strange)
+
+    visit_part = zip(visit_fields_names, visit_fields_vals)
+
+    about_visit = {field_name: field_value for field_name, field_value in visit_part}
+
+    return about_visit
+    
