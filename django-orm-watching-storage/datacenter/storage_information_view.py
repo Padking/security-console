@@ -7,7 +7,8 @@ from .utils import to_dict
 
 def storage_information_view(request):
     visitors_in_storage = Visit.objects.filter(leaved_at=None)
-    non_closed_visits = [to_dict(visitor) for visitor in visitors_in_storage]
+    visitors_fields_names = ('who_entered', 'entered_at', 'duration', )
+    non_closed_visits = [to_dict(visitor, visitors_fields_names, instead_of_owner_name=False) for visitor in visitors_in_storage]
 
     context = {
         'non_closed_visits': non_closed_visits,

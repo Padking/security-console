@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, \
 from datacenter.models import Passcard
 from datacenter.models import Visit
 
-from .utils import visit_to_dict
+from .utils import to_dict
 
 
 def passcard_info_view(request, passcode):
@@ -12,7 +12,7 @@ def passcard_info_view(request, passcode):
     passcard = get_object_or_404(Passcard, passcode=passcode)
 
     visits_per_passcard = passcard.visit_set.all()
-    this_passcard_visits = [visit_to_dict(visit) for visit in visits_per_passcard]
+    this_passcard_visits = [to_dict(visit) for visit in visits_per_passcard]
 
     context = {
         'passcard': passcard,
