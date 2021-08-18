@@ -8,14 +8,14 @@ def format_duration(duration: datetime.timedelta) -> str:
     hours, time_remainder = divmod(seconds_to_transform, 60 * 60)
     minutes, seconds = divmod(time_remainder, 60)
 
-    time_template = "{:.0f}:{:.0f}:{:.0f}"
+    time_template = '{:.0f}:{:.0f}:{:.0f}'
     time_repr = time_template.format(hours, minutes, seconds)
 
     return time_repr
 
 
 def to_dict(instance: Visit,
-            instances_fields_names=("who_entered", "entered_at", "duration", )):
+            instances_fields_names=('who_entered', 'entered_at', 'duration', )):
 
     owner_name = instance.passcard.owner_name
     entered_at = instance.entered_at
