@@ -30,7 +30,8 @@ class Visit(models.Model):
         return duration
 
     def is_visit_long(self, minutes=60):
-        return True if self.get_duration() > datetime.timedelta(minutes=minutes) else False
+        is_long = self.get_duration() > datetime.timedelta(minutes=minutes)
+        return is_long
 
     def __str__(self):
         return '{user} entered at {entered} {leaved}'.format(
