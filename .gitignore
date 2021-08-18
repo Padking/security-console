@@ -30,9 +30,6 @@ for_project/
 # .installed.cfg
 *.egg
 # MANIFEST
-poetry.lock
-pyproject.toml
-
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -153,8 +150,9 @@ bar.py
 baz.py
 foo.py
 proba.py
-.replit
+
+# Example dirs
+Django-ORM-standalone/
 
 # Linter's settings
 .flake8
-
