@@ -25,13 +25,18 @@
 
 ### Установка
 
-1. git clone https://github.com/Padking/security-console.git  # клонирование проекта
-2. `cd security-console`
-3. `mkvirtualenv -p <path> <virtualenv's_name>`  # создание каталога виртуального окружения (ВО)*
-4. `setvirtualenvproject <virtualenv's_path> <project's_path>`  # связывание каталогов ВО и проекта
-5. `pip install -r requirements.txt` # установка зависимостей
-6. `cd django-orm-watching-storage`
-7. `python main.py`  # запуск скрипта
+```bash
+git clone https://github.com/Padking/security-console.git  # клонирование проекта
+cd security-console
+```
+`mkvirtualenv -p` <path> <virtualenv's_name>  # создание каталога виртуального окружения (ВО)*
+
+`setvirtualenvproject` <virtualenv's_path> <project's_path>  # связывание каталогов ВО и проекта
+```bash
+pip install -r requirements.txt # установка зависимостей
+cd django-orm-watching-storage
+python main.py  # запуск скрипта
+```
 
 ### Пример запуска
 
