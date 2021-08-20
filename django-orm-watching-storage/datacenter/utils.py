@@ -28,7 +28,6 @@ def to_dict(instance: Visit,
         owner_name = instance.passcard.owner_name
         instances_fields_vals = (owner_name, entered_at, duration)
     
-    instance_part = zip(instances_fields_names, instances_fields_vals)
-    about_instance = {field_name: field_value for field_name, field_value in instance_part}
+    about_instance = dict(zip(instances_fields_names, instances_fields_vals))
 
     return about_instance
