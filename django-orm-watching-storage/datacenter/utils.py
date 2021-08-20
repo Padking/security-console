@@ -15,19 +15,14 @@ def format_duration(duration: datetime.timedelta) -> str:
 
 
 def to_dict(instance: Visit,
-             instances_fields_names=('entered_at', 'duration', 'is_strange', ),
-             instead_of_owner_name=True):
+            instances_fields_names=('who_entered', 'entered_at', 'duration', 'is_strange', )):
 
+    owner_name = instance.passcard.owner_name
     entered_at = instance.entered_at
     duration = format_duration(instance.get_duration())
+    is_strange = instance.is_visit_long()
 
-    if instead_of_owner_name:
-        is_strange = instance.is_visit_long()
-        instances_fields_vals = (entered_at, duration, is_strange)
-    else:
-        owner_name = instance.passcard.owner_name
-        instances_fields_vals = (owner_name, entered_at, duration)
-    
+    instances_fields_vals = (owner_name, entered_at, duration, is_strange)
     about_instance = dict(zip(instances_fields_names, instances_fields_vals))
 
     return about_instance
