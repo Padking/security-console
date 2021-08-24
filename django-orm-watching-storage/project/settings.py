@@ -1,19 +1,27 @@
 import os
 
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+
+HOST = os.environ['DB_PSQL_HOST']
+PASSWORD = os.environ['DB_PSQL_USERPASSWORD']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'checkpoint.devman.org',
+        'HOST': HOST,
         'PORT': '5434',
         'NAME': 'checkpoint',
         'USER': 'guard',
-        'PASSWORD': 'osim5',
+        'PASSWORD': PASSWORD,
     }
 }
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = 'REPLACE_ME'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
