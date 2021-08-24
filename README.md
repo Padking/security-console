@@ -35,13 +35,13 @@ cd security-console
 ```bash
 pip install -r requirements.txt # установка зависимостей
 cd django-orm-watching-storage
-python main.py  # запуск скрипта
+python manage.py runserver 0.0.0.0:8000  # запуск скрипта
 ```
 
 ### Пример запуска
 
 ```
-$ python main.py
+$ python manage.py runserver 0.0.0.0:8000
 Performing system checks...
 
 System check identified no issues (0 silenced).
